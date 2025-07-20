@@ -147,3 +147,27 @@ export async function playerHeighestSore() {
     }
 
 }
+
+//--------------playes scores based on game level------------//
+
+let scores = 0;  //in case it hasn't been declared yet.
+ 
+export function winners(gameLevel) {
+    if (gameLevel==="Easy") {
+        scores+=5
+    } else if (gameLevel === "Medium") {
+        scores+=10
+    } else if (gameLevel === "Hard") {
+        scores+=20
+    } else {
+        console.log("you didn't choose any game level");
+    }
+}
+
+export function losers(gameLevel) {
+    if (gameLevel==="Easy" || gameLevel==="Medium" ||gameLevel==="Hard") {
+        scores+=0
+    } else {
+        console.log("you didn't choose any game level");
+    }
+}

@@ -11,12 +11,13 @@
     <div class="container">
       <h1>Welcome to Color Code Game</h1>
 
-      <div class="btn-group one">
+      <div class="btn-group auth-buttons" id="one">
         <button onclick="location.href='signin.html'">Sign In</button>
         <button onclick="location.href='signup.html'">Sign Up</button>
       </div>
 
-      <div class="level-selection">
+      <div class="level-selection" style="display: none;">
+        <p id="welcome-message"></p>
         <label for="difficulty">Select Difficulty Level:</label>
         <select id="difficulty" name="difficulty">
           <option value="easy">Easy (6 colors)</option>
@@ -24,13 +25,40 @@
           <option value="hard">Hard (10 colors)</option>
         </select>
 
-        <button onclick="location.href='game.html'">Start Game</button>
+        <button onclick="startGame()">Start Game</button>
       </div>
 
-      <div class="btn-group two">
+      <div class="btn-group" id="two">
         <button onclick="location.href='scores.html'">View Leaderboard</button>
       </div>
     </div>
   </main>
+
+  <script>
+ const username = localStorage.getItem("username");
+
+    function showGameSection() {
+      document.querySelector('.auth-buttons').style.display = "none";
+      document.querySelector('.level-selection').style.display = "block";
+      document.getElementById("welcome-message").textContent = `Hello, ${username}!`;
+    }
+
+    function showAuthSection() {
+      document.querySelector('.auth-buttons').style.display = "block";
+      document.querySelector('.level-selection').style.display = "none";
+    }
+
+    function startGame() {
+      const level = document.getElementById("difficulty").value;
+      location.href = `game.html?level=${level}`;
+    }
+
+    // On page load
+    if (username) {
+      showGameSection();
+    } else {
+      showAuthSection();
+    }
+  </script>
 </body>
 </html>

@@ -3,3 +3,172 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #f0f0f0, #c8c8c8);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  margin: 100px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.login-info p {
+  margin-bottom: 20px;
+}
+
+.level-selection label {
+  display: block;
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.level-selection input,
+.level-selection select {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  margin-right: 5PX;
+}
+
+.level-selection button {
+  width: 25%;
+  padding: 11px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.level-selection button:hover {
+  background-color: #66b2f0;
+}
+
+.btn-group {
+  margin-top: 10px;
+}
+
+.btn-group button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 15px;
+  background-color: #2d8f41;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-group button:hover {
+  background-color: #42b730;
+}
+
+.one {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.two {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Game Page Specific Styles */
+.game-container {
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.color-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.color-circle:hover {
+  border-color: #333;
+}
+
+#submitGuessBtn {
+  margin-top: 20px;
+  background-color: #2d8f41;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submitGuessBtn:hover {
+  background-color: #246e33;
+}
+
+.guess-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: lighter
+}

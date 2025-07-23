@@ -167,7 +167,7 @@ signupForm.addEventListener("submit", async (e) => {
     }
 
     alert("Registration successful! Redirecting to Game page...");
-    window.location.href = "game.html";
+    window.location.href = "signin.html";
   } catch (error) {
     signupError.textContent = "Error: " + error.message;
   }

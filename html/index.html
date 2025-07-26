@@ -35,30 +35,51 @@
   </main>
 
   <script>
- const username = localStorage.getItem("username");
-
-    function showGameSection() {
-      document.querySelector('.auth-buttons').style.display = "none";
-      document.querySelector('.level-selection').style.display = "block";
-      document.getElementById("welcome-message").textContent = `Hello, ${username}!`;
+  async function fetchUserByUsername(username) {
+    try {
+      const res = await fetch(`https://687b7cb4b4bc7cfbda861109.mockapi.io/user`);
+      const users = await res.json();
+      return users.find(user => user.username === username);
+    } catch (err) {
+      console.error("Error fetching user:", err);
+      return null;
     }
+  }
 
-    function showAuthSection() {
-      document.querySelector('.auth-buttons').style.display = "block";
-      document.querySelector('.level-selection').style.display = "none";
-    }
+  function getUsernameFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("username");
+  }
 
-    function startGame() {
-      const level = document.getElementById("difficulty").value;
-      location.href = `game.html?level=${level}`;
-    }
-
-    // On page load
+  async function init() {
+    const username = getUsernameFromURL();
     if (username) {
-      showGameSection();
+      const user = await fetchUserByUsername(username);
+      if (user) {
+        showGameSection(user.username);
+      } else {
+        showAuthSection();
+      }
     } else {
       showAuthSection();
     }
+  }
+
+  function showGameSection(username) {
+    document.querySelector('.auth-buttons').style.display = "none";
+    document.getElementById("welcome-message").textContent = `Hello, ${username}!`;
+  }
+
+  function showAuthSection() {
+    document.querySelector('.level-selection').style.display = "none";
+  }
+
+  function startGame() {
+    const level = document.getElementById("difficulty").value;
+    location.href = `game.html?level=${level}`;
+  }
+
+  init();
   </script>
 </body>
 </html>
